@@ -1,9 +1,9 @@
-# Getting Started with Create React App
-
-1. Install dependencies
+1. Installation
+git clone https://github.com/Ratiksha/blog-dashboard.git
+cd blog-dashboard
 npm install
 
-2. Start the development server
+2. Development:
 npm start
 
 The app will run at http://localhost:3000
