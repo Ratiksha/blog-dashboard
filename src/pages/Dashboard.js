@@ -64,13 +64,14 @@ const Dashboard = () => {
       </Grid>
 
       <BlogTable posts={filteredPosts} onEdit={handleEdit} onDelete={handleDelete} />
-      <BlogFormDialog open={formOpen} onClose={() => setFormOpen(false)} onSave={handleSave} post={selectedPost} />
-      <ConfirmDialog
+      {formOpen && <BlogFormDialog open={formOpen} onClose={() => setFormOpen(false)} onSave={handleSave} post={selectedPost} />}
+      {confirmOpen && <ConfirmDialog
         open={confirmOpen}
         onClose={() => setConfirmOpen(false)}
         onConfirm={confirmDelete}
         message="Are you sure you want to delete this post?"
       />
+      }
     </Container>
   );
 }
