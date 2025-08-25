@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { getTheme } from "./theme";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import ViewBlogPage from './components/ViewBlogPage';
 
 function App() {
+  const [mode, setMode] = useState("light");
+  const toggleMode = () => {
+    setMode(mode === "light" ? "dark" : "light");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={getTheme(mode)}>
+      <CssBaseline />
+      <Router>
+        <Navbar mode={mode} toggleMode={toggleMode} />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/posts/:id" element={<ViewBlogPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
