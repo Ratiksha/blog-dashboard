@@ -2,12 +2,12 @@ import { Container, Button, Grid } from "@mui/material";
 import { useState } from "react";
 import { mockPosts } from "../data/mockPosts";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import SearchBar from "../components/SearchBar";
-import BlogTable from "../components/BlogTable";
-import BlogFormDialog from "../components/BlogFormDialog";
-import ConfirmDialog from "../components/ConfirmDialog";
+import SearchBar from "./SearchBar";
+import BlogTable from "./BlogTable";
+import BlogFormDialog from "./BlogFormDialog";
+import ConfirmDialog from "./ConfirmDialog";
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [posts, setPosts] = useLocalStorage("blogPosts", mockPosts);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPost, setSelectedPost] = useState(null);
@@ -70,3 +70,5 @@ export default function Dashboard() {
     </Container>
   );
 }
+
+export default Dashboard;

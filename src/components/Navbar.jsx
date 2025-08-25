@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 
-export default function Navbar({ mode, toggleMode }) {
+const Navbar = ({ mode, toggleMode }) => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -15,3 +15,5 @@ export default function Navbar({ mode, toggleMode }) {
     </AppBar>
   );
 }
+
+export default Navbar;

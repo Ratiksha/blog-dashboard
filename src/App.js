@@ -1,10 +1,11 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getTheme } from "./theme";
 import Navbar from "./components/Navbar";
-import Dashboard from "./pages/Dashboard";
-import ViewBlogPage from './components/ViewBlogPage';
+
+const Dashboard = React.lazy(() => import('./pages/Dashboard'))
+const ViewBlogPage = React.lazy(() => import('./components/ViewBlogPage'))
 
 function App() {
   const [mode, setMode] = useState("light");

@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 
-export default function SearchBar({ searchTerm, setSearchTerm }) {
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
   return (
     <TextField
       label="Search by Title or Author"
@@ -12,3 +12,5 @@ export default function SearchBar({ searchTerm, setSearchTerm }) {
     />
   );
 }
+
+export default SearchBar;
